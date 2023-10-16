@@ -51,17 +51,64 @@ nav.maninNav {
 }
 
 .nav-content li {
-  padding: 8px 15px;
-  display: flex;
-  justify-content: end;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 15px;
-  opacity: 70%;
-  border-radius: 30px;
+  color: #fff !important;
+  font-size: 16px;
+  font-weight: 400;
+  margin: 0 0.5rem;
+  padding: 0.2rem;
+  text-transform: uppercase;
 }
 
+/* Responsive start */
+/* Add these styles for the hamburger menu */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
 
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: #00BF63;
+  margin: 4px 0;
+  border-radius: 5px;
+}
 
+/* Updated styles for smaller screens */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0;
+  }
+
+  .hamburger {
+    display: flex;
+    align-items: center;
+  }
+
+  .nav-content {
+    flex-direction: column;
+    background-color: #333;
+    position: absolute;
+    top: 75px;
+    left: 0;
+    right: 0;
+    display: none;
+  }
+
+  .nav-content.open {
+    display: flex;
+  }
+
+  .nav-content li {
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+  }
+
+  .homeNav::after {
+    display: none;
+  }
+}
 
 /* Login Modal */
 .forgotPasswordSection {

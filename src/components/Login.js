@@ -44,13 +44,14 @@ export default function Login(props) {
         }
       )
       const token = response.data.token
-      handleClose()
-      if (response.status === true) {
+      if (response.data && response.data.status === true) {
+        // Login was successful; you have a token.
+        handleClose()
         window.location.replace('https://tvmwildlife.com/')
       } else {
-        alert('Invalid credentials')
+        // Login failed, handle the error here
+        setError('Invalid credentials')
       }
-
       console.log('res', response)
     } catch (err) {
       console.log(err)
@@ -59,7 +60,7 @@ export default function Login(props) {
   return (
     <div>
       <button className='btn btn-primary' onClick={handleShow}>
-        Login
+        LOGIN
       </button>
 
       <Modal show={show} onHide={handleClose}>
@@ -114,9 +115,6 @@ export default function Login(props) {
             </div>
           </form>
         </Modal.Body>
-        {/* <Modal.Footer>
-          <button onClick={handleClose}>Close</button>
-        </Modal.Footer> */}
       </Modal>
       <ForgotPassword
         handleForgotPasswordClick={handleForgotPasswordClick}
